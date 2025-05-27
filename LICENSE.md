@@ -4,4 +4,4 @@ This repository and all associated code, assets, and documentation are the exclu
 
 Unauthorized copying, distribution, modification, or use of any part of this project is strictly prohibited without prior written permission from SEKU Games.
 
-For inquiries, please contact: sekugames@gmail.com
+For inquiries, please contact: sekugamesofficial@gmail.com
