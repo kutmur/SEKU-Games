@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,7 +10,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    MovingSprite sprite;
+    List<MovingSprite> sprites;
    
 
     public Game1()
@@ -32,17 +33,27 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         Texture2D texture = Content.Load<Texture2D>("imorr");
-        sprite = new MovingSprite(texture, Vector2.Zero,1f);
+        sprites = new List<MovingSprite>();
+
+        for (int i = 0; i < 10; i++) {
+
+            sprites.Add(new MovingSprite(texture, new Vector2(0, 10 * i), i));
+            }
+
+
     }
 
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        sprite.Update();
+        
         // TODO: Add your update logic here
 
-        base.Update(gameTime);
+        foreach (MovingSprite sprite in sprites)
+        {
+            sprite.Update();
+                }
     }
 
     protected override void Draw(GameTime gameTime)
@@ -52,7 +63,12 @@ public class Game1 : Game
         // TODO: Add your drawing code here
 
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        _spriteBatch.Draw(sprite.texture,sprite.Rect, Color.White);
+
+        foreach (MovingSprite sprite in sprites)
+        {
+            _spriteBatch.Draw(sprite.texture, sprite.Rect, Color.White);
+            }
+
         _spriteBatch.End();
 
         base.Draw(gameTime);
