@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEKU-Games", "SEKU-Games.csproj", "{2DE12FD0-1456-76DA-7F8C-15D01BF7F96E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game1", "Game1\Game1.csproj", "{2EBCD566-EFDB-765A-2FD7-2A709EA9FA2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2DE12FD0-1456-76DA-7F8C-15D01BF7F96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DE12FD0-1456-76DA-7F8C-15D01BF7F96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DE12FD0-1456-76DA-7F8C-15D01BF7F96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DE12FD0-1456-76DA-7F8C-15D01BF7F96E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EBCD566-EFDB-765A-2FD7-2A709EA9FA2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EBCD566-EFDB-765A-2FD7-2A709EA9FA2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EBCD566-EFDB-765A-2FD7-2A709EA9FA2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EBCD566-EFDB-765A-2FD7-2A709EA9FA2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3B35EF09-815C-4F5B-8763-42300A64F865}
+		SolutionGuid = {668E97C9-6D86-4634-92E2-20C7D62E5363}
 	EndGlobalSection
 EndGlobal
