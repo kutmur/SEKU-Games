@@ -1,0 +1,29 @@
+// Gerekli kütüphaneleri projeye dahil ediyoruz
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+// MonoGame'e ait temel grafik ve matematik sınıflarını kullanmak için
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace Game1
+{
+    // ColoredSprite sınıfı, ScaledSprite sınıfından kalıtım alıyor (miras)
+    // Yani, ölçeklenebilen bir sprite’a ek olarak renk özelliği kazanıyor
+    internal class ColoredSprite : ScaledSprite
+    {
+        // Sprite'ın çizim rengini temsil eden Color türünde bir değişken
+        public Color color;
+
+        // Yapıcı metod (constructor): dışarıdan gelen texture, pozisyon ve renk bilgilerini alır
+        // Temel sınıfa (ScaledSprite) texture ve position parametreleri gönderilir
+        public ColoredSprite(Texture2D texture, Vector2 position, Color color) : base(texture, position)
+        {
+            // Renk bilgisi sınıfın kendi değişkenine atanır
+            this.color = color;
+        }
+    }
+}

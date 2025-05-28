@@ -9,7 +9,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    ColoredSprite sprite;
+    MovingSprite sprite;
    
 
     public Game1()
@@ -32,14 +32,14 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         Texture2D texture = Content.Load<Texture2D>("imorr");
-        sprite = new ColoredSprite(texture, Vector2.Zero,Color.Red);
+        sprite = new MovingSprite(texture, Vector2.Zero,1f);
     }
 
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-
+        sprite.Update();
         // TODO: Add your update logic here
 
         base.Update(gameTime);
@@ -52,7 +52,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
 
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        _spriteBatch.Draw(sprite.texture,sprite.Rect, sprite.color);
+        _spriteBatch.Draw(sprite.texture,sprite.Rect, Color.White);
         _spriteBatch.End();
 
         base.Draw(gameTime);
