@@ -1,18 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SEKUGames;
 
-namespace Game1;
+
 
 public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    List<MovingSprite> sprites;
-   
+    List<Sprite> sprites;
 
+
+
+    
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -22,55 +27,57 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
         base.Initialize();
+
+       
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // TODO: use this.Content to load your game content here
-        Texture2D texture = Content.Load<Texture2D>("imorr");
-        sprites = new List<MovingSprite>();
+         sprites = new();
 
-        for (int i = 0; i < 10; i++) {
+        Texture2D playerTexture = Content.Load<Texture2D>("imorr");
+        Texture2D enemyTexture = Content.Load<Texture2D>("xanti");
 
-            sprites.Add(new MovingSprite(texture, new Vector2(0, 10 * i), i));
-            }
+        sprites.Add(new Sprite(enemyTexture, new Vector2(10, 10)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(2, 16)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(5, 8)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(15, 30)));
 
-
+        sprites.Add(new Player(playerTexture, new Vector2(200, 200)));
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        
-        // TODO: Add your update logic here
 
-        foreach (MovingSprite sprite in sprites)
+        foreach (var sprite in sprites)
         {
-            sprite.Update();
+            sprite.Update(gameTime);
                 }
+
+
+
+        base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
+{
+    GraphicsDevice.Clear(Color.CornflowerBlue);
+
+    _spriteBatch.Begin();
+
+    foreach (var sprite in sprites)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
-
-        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-
-        foreach (MovingSprite sprite in sprites)
-        {
-            _spriteBatch.Draw(sprite.texture, sprite.Rect, Color.White);
-            }
-
-        _spriteBatch.End();
-
-        base.Draw(gameTime);
+        sprite.Draw(_spriteBatch);
     }
+
+    _spriteBatch.End();
+
+    base.Draw(gameTime);
+}
+
 }

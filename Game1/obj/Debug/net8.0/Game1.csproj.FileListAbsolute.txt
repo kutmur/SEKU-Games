@@ -31,3 +31,4 @@
 /home/ercu/Desktop/repos/SEKU-Games/Game1/obj/Debug/net8.0/Game1.genruntimeconfig.cache
 /home/ercu/Desktop/repos/SEKU-Games/Game1/obj/Debug/net8.0/ref/Game1.dll
 /home/ercu/Desktop/repos/SEKU-Games/Game1/bin/Debug/net8.0/Content/imorr.xnb
+/home/ercu/Desktop/repos/SEKU-Games/Game1/bin/Debug/net8.0/Content/xanti.xnb

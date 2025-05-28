@@ -1,2 +1,11 @@
-﻿using var game = new Game1.Game1();
-game.Run();
+﻿namespace SEKUGames
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using var game = new Game1();
+            game.Run();
+        }
+    }
+}
