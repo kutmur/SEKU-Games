@@ -9,7 +9,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    Sprite sprite;
+    ColoredSprite sprite;
    
 
     public Game1()
@@ -32,7 +32,7 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         Texture2D texture = Content.Load<Texture2D>("imorr");
-        sprite = new Sprite(texture, Vector2.Zero);
+        sprite = new ColoredSprite(texture, Vector2.Zero,Color.Red);
     }
 
     protected override void Update(GameTime gameTime)
@@ -52,7 +52,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
 
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        _spriteBatch.Draw(sprite.texture,sprite.position, Color.Red);
+        _spriteBatch.Draw(sprite.texture,sprite.Rect, sprite.color);
         _spriteBatch.End();
 
         base.Draw(gameTime);

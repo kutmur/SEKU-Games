@@ -1,0 +1,36 @@
+🔒 Erişim belirleyiciler karşılaştırması:
+Belirleyici	Erişim Durumu
+public	            Her yerden erişilebilir (aynı sınıf, aynı proje, farklı projeler)
+private	S           adece tanımlandığı sınıfın içinde erişilebilir
+protected	        Sadece türetilen (inherit edilen) sınıflarda ve aynı sınıfta erişilebilir
+internal	        Sadece aynı proje içinde erişilebilir
+protected internal	Aynı proje veya kalıtılan sınıflardan erişilebilir
+private protected	Aynı sınıf ya da kalıtılan sınıf ama aynı proje içinden erişilebilir
+
+🎯 Örnek:
+csharp
+Copy
+Edit
+public class Player
+{
+    public int health;       // Her yerden erişilebilir
+    private int score;       // Sadece bu sınıf içinde erişilir
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;    // health'e ulaşabiliyoruz çünkü aynı sınıftayız
+    }
+
+    private void SecretMethod()
+    {
+        // sadece bu sınıf içinden erişilebilir
+    }
+}
+Başka bir sınıfta:
+
+csharp
+Copy
+Edit
+Player player = new Player();
+player.health = 50;       // Evet, çünkü public
+// player.score = 100;    // ❌ HATA! Çünkü score private
