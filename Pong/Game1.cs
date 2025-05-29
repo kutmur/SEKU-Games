@@ -2,50 +2,43 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Pong;
+namespace Pong {
+    public class Game1 : Game {
+        private GraphicsDeviceManager _graphics;
 
-public class Game1 : Game
-{
-    private GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
+        public Game1() {
+            _graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferWidth = Globals.WIDTH;
+            _graphics.PreferredBackBufferHeight = Globals.HEIGHT;
+            Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+        }
 
-    public Game1()
-    {
-        _graphics = new GraphicsDeviceManager(this);
-        Content.RootDirectory = "Content";
-        IsMouseVisible = true;
-    }
+        protected override void Initialize() {
+            base.Initialize();
+        }
 
-    protected override void Initialize()
-    {
-        // TODO: Add your initialization logic here
+        protected override void LoadContent() {
+            Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
+            Globals.pixel = new Texture2D(GraphicsDevice, 1, 1);
+            Globals.pixel.SetData<Color>(new Color[] { Color.White });
+        }
 
-        base.Initialize();
-    }
+        protected override void Update(GameTime gameTime) {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
 
-    protected override void LoadContent()
-    {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
+            base.Update(gameTime);
+        }
 
-        // TODO: use this.Content to load your game content here
-    }
+        protected override void Draw(GameTime gameTime) {
+            GraphicsDevice.Clear(Color.Black);
 
-    protected override void Update(GameTime gameTime)
-    {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
+            Globals.spriteBatch.Begin();
+            // Drawing will go here
+            Globals.spriteBatch.End();
 
-        // TODO: Add your update logic here
-
-        base.Update(gameTime);
-    }
-
-    protected override void Draw(GameTime gameTime)
-    {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
-
-        base.Draw(gameTime);
+            base.Draw(gameTime);
+        }
     }
 }
