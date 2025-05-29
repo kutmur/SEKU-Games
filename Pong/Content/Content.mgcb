@@ -1,8 +1,7 @@
-
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/$(Platform)
-/intermediateDir:obj/$(Platform)
+/outputDir:bin/DesktopGL
+/intermediateDir:obj/DesktopGL
 /platform:DesktopGL
 /config:
 /profile:Reach
@@ -10,6 +9,6 @@
 
 #-------------------------------- References --------------------------------#
 
-
 #---------------------------------- Content ---------------------------------#
 
+Score.spritefont

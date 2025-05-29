@@ -7,6 +7,7 @@ namespace Pong {
         private GraphicsDeviceManager _graphics;
         Paddle paddle1, paddle2;
         Ball ball;
+        SpriteFont font;
 
 
         public Game1()
@@ -26,6 +27,7 @@ namespace Pong {
         }
 
         protected override void LoadContent() {
+            font = Content.Load<SpriteFont>("Score");
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
             Globals.pixel = new Texture2D(GraphicsDevice, 1, 1);
             Globals.pixel.SetData<Color>(new Color[] { Color.White });
@@ -47,11 +49,16 @@ namespace Pong {
     Globals.spriteBatch.Begin();
     paddle1.Draw();
     paddle2.Draw();
-    ball.Draw(); // ✔️ spriteBatch.End()'den önce olmalı
+    ball.Draw();
+
+    Globals.spriteBatch.DrawString(font, Globals.player1_score.ToString(), new Vector2(100, 50), Color.White);
+    Globals.spriteBatch.DrawString(font, Globals.player2_score.ToString(), new Vector2(Globals.WIDTH - 112, 50), Color.White);
+
     Globals.spriteBatch.End();
 
     base.Draw(gameTime);
 }
+
 
     }
 }

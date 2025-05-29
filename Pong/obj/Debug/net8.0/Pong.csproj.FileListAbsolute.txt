@@ -30,3 +30,4 @@
 /home/halil/Desktop/repos/SEKU-Games/Pong/obj/Debug/net8.0/Pong.pdb
 /home/halil/Desktop/repos/SEKU-Games/Pong/obj/Debug/net8.0/Pong.genruntimeconfig.cache
 /home/halil/Desktop/repos/SEKU-Games/Pong/obj/Debug/net8.0/ref/Pong.dll
+/home/halil/Desktop/repos/SEKU-Games/Pong/bin/Debug/net8.0/Content/Score.xnb
