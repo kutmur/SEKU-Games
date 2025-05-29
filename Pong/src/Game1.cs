@@ -5,8 +5,12 @@ using Microsoft.Xna.Framework.Input;
 namespace Pong {
     public class Game1 : Game {
         private GraphicsDeviceManager _graphics;
+        Paddle paddle1, paddle2;
+        Ball ball;
 
-        public Game1() {
+
+        public Game1()
+        {
             _graphics = new GraphicsDeviceManager(this);
             _graphics.PreferredBackBufferWidth = Globals.WIDTH;
             _graphics.PreferredBackBufferHeight = Globals.HEIGHT;
@@ -15,6 +19,9 @@ namespace Pong {
         }
 
         protected override void Initialize() {
+            paddle1 = new Paddle(false);
+            paddle2 = new Paddle(true);
+            ball = new Ball();
             base.Initialize();
         }
 
@@ -25,20 +32,26 @@ namespace Pong {
         }
 
         protected override void Update(GameTime gameTime) {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            paddle1.Update(gameTime);
+            paddle2.Update(gameTime);
+            ball.Update(gameTime, paddle1, paddle2);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime) {
-            GraphicsDevice.Clear(Color.Black);
+    GraphicsDevice.Clear(Color.Black);
 
-            Globals.spriteBatch.Begin();
-            // Drawing will go here
-            Globals.spriteBatch.End();
+    Globals.spriteBatch.Begin();
+    paddle1.Draw();
+    paddle2.Draw();
+    ball.Draw(); // ✔️ spriteBatch.End()'den önce olmalı
+    Globals.spriteBatch.End();
 
-            base.Draw(gameTime);
-        }
+    base.Draw(gameTime);
+}
+
     }
 }
