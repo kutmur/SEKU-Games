@@ -1,0 +1,45 @@
+Sprite class, genellikle 2D oyun geliştirmede kullanılan temel bir yapı taşıdır. Bir "sprite", ekranda hareket eden ya da sabit duran görsel bir nesnedir — karakter, düşman, mermi, arka plan öğesi vs. olabilir. Sprite class da bu nesneleri temsil etmek ve yönetmek için oluşturulan bir sınıftır.
+
+Sprite class genelde ne işe yarar?
+Görseli (Texture) tutar
+Sprite'ın görsel temsilini, yani Texture2D gibi bir nesneyi içerir.
+
+Konum (Position)
+Sprite’ın oyun dünyasında (veya ekranda) nerede bulunduğunu belirtir.
+
+Hareket
+Velocity gibi bir vektör ile sprite’ın hareket etmesi sağlanabilir.
+
+Çizim (Draw)
+Sprite’ı ekrana çizen bir Draw metodu olur.
+
+Çarpışma (Collision)
+Rectangle gibi bir yapı ile çarpışma kontrolü yapılabilir.
+
+Basit bir örnek (MonoGame için):
+csharp
+Copy
+Edit
+public class Sprite
+{
+    public Texture2D Texture;
+    public Vector2 Position;
+    public Vector2 Velocity;
+
+    public Sprite(Texture2D texture)
+    {
+        Texture = texture;
+        Position = Vector2.Zero;
+        Velocity = Vector2.Zero;
+    }
+
+    public void Update(GameTime gameTime)
+    {
+        Position += Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        spriteBatch.Draw(Texture, Position, Color.White);
+    }
+}

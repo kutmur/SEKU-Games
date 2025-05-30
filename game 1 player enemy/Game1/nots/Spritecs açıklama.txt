@@ -1,0 +1,32 @@
+// Gerekli .NET ve MonoGame kütüphaneleri içe aktarılıyor
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+// Bu sınıf Game1 isimli namespace içinde yer alıyor
+namespace Game1
+{
+    // Sprite sınıfı sadece bu assembly içinde erişilebilir (internal)
+    internal class Sprite
+    {
+        // Sprite'ın görselini tutan değişken
+        public Texture2D texture;
+
+        // Sprite'ın ekrandaki konumunu tutan vektör
+        public Vector2 position;
+
+        // Yapıcı metot: sprite'ı texture ve pozisyon bilgisiyle oluşturur
+        public Sprite(Texture2D texture, Vector2 position)
+        {
+            // Parametre olarak gelen texture'u sınıf değişkenine atıyoruz
+            this.texture = texture;
+
+            // Parametre olarak gelen pozisyonu sınıf değişkenine atıyoruz
+            this.position = position;
+        }
+    }
+}

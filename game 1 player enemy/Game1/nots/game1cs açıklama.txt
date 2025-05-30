@@ -1,0 +1,84 @@
+// Gerekli MonoGame namespace'lerini içe aktarıyoruz
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+// Namespace tanımı (projenin adıyla aynı olabilir)
+namespace Game1;
+
+// Game1 sınıfı, MonoGame'in Game sınıfından kalıtım alıyor
+public class Game1 : Game
+{
+    // Grafik ayarlarını yöneten sınıf
+    private GraphicsDeviceManager _graphics;
+
+    // Çizim işlemlerini yöneten sınıf
+    private SpriteBatch _spriteBatch;
+
+    // Ekrana çizeceğimiz sprite nesnesi
+    Sprite sprite;
+
+    // Yapıcı metot: oyunun temel ayarlarını yapıyoruz
+    public Game1()
+    {
+        // Grafik yöneticisini başlatıyoruz
+        _graphics = new GraphicsDeviceManager(this);
+
+        // İçerik klasörünün yolunu belirliyoruz
+        Content.RootDirectory = "Content";
+
+        // Fareyi görünür yapıyoruz
+        IsMouseVisible = true;
+    }
+
+    // Oyun başlarken bir kez çalışır, başlatma kodları buraya
+    protected override void Initialize()
+    {
+        // Gerekirse oyun başlarken çalışacak özel kodlar buraya
+
+        base.Initialize(); // Üst sınıfın initialize'ını da çağırıyoruz
+    }
+
+    // İçerikleri (görsel, ses vb.) yüklediğimiz yer
+    protected override void LoadContent()
+    {
+        // SpriteBatch örneğini oluşturuyoruz (çizim için gerekli)
+        _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        // 'Content' klasöründen bir görsel yüklüyoruz (örnek: Content/imorr.png)
+        Texture2D texture = Content.Load<Texture2D>("imorr");
+
+        // Sprite nesnesini oluşturuyoruz, pozisyon olarak (0,0) yani ekranın sol üst köşesi
+        sprite = new Sprite(texture, Vector2.Zero);
+    }
+
+    // Oyun döngüsünde sürekli çalışan kısım, mantıksal işlemler buraya
+    protected override void Update(GameTime gameTime)
+    {
+        // Geri tuşuna ya da Escape'e basılırsa oyunu kapat
+        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            Exit();
+
+        // Oyun mantığı (hareket, çarpışma, input vs.) buraya yazılır
+
+        base.Update(gameTime); // Üst sınıfın update'ini de çalıştır
+    }
+
+    // Ekrana çizim yapılacak kısım, her frame çalışır
+    protected override void Draw(GameTime gameTime)
+    {
+        // Ekranı mavi renkle temizliyoruz
+        GraphicsDevice.Clear(Color.CornflowerBlue);
+
+        // Çizime başla, PointClamp ile piksellerin bulanık olmamasını sağlıyoruz (piksel art için)
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
+        // Sprite'ı kırmızı tonlamayla ekrana çiziyoruz (rengi değiştirmek için Color parametresi)
+        _spriteBatch.Draw(sprite.texture, sprite.position, Color.Red);
+
+        // Çizimi bitiriyoruz
+        _spriteBatch.End();
+
+        base.Draw(gameTime); // Üst sınıfın draw metodunu çağırıyoruz
+    }
+}

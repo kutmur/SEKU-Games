@@ -1,3 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/AnimationSheet_Character.gif","/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/bin/DesktopGL/Content/AnimationSheet_Character.xnb","TextureProcessor","Texture2DContent",14994,4181,0.0782169
+"/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/github-octopuss.gif","/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/bin/DesktopGL/Content/github-octopuss.xnb","TextureProcessor","Texture2DContent",7725,10085,0.0898827
 "/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/imorr.png","/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/bin/DesktopGL/Content/imorr.xnb","TextureProcessor","Texture2DContent",27255,90085,0.1729854
 "/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/xanti.jpg","/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/bin/DesktopGL/Content/xanti.xnb","TextureProcessor","Texture2DContent",15469,640085,0.10928

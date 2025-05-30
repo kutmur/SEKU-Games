@@ -15,6 +15,9 @@ public class Game1 : Game
 
     List<Sprite> sprites;
 
+    Player player;
+
+
 
 
     
@@ -38,15 +41,19 @@ public class Game1 : Game
 
          sprites = new();
 
-        Texture2D playerTexture = Content.Load<Texture2D>("imorr");
-        Texture2D enemyTexture = Content.Load<Texture2D>("xanti");
+        Texture2D playerTexture = Content.Load<Texture2D>("AnimationSheet_Character");
+        Texture2D enemyTexture = Content.Load<Texture2D>("github-octopuss");
 
-        sprites.Add(new Sprite(enemyTexture, new Vector2(10, 10)));
-        sprites.Add(new Sprite(enemyTexture, new Vector2(2, 16)));
-        sprites.Add(new Sprite(enemyTexture, new Vector2(5, 8)));
-        sprites.Add(new Sprite(enemyTexture, new Vector2(15, 30)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(500, 50)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(100, 50)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(200, 70)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(600, 50)));
+        sprites.Add(new Sprite(enemyTexture, new Vector2(400, 50)));
+    
 
-        sprites.Add(new Player(playerTexture, new Vector2(200, 200)));
+        player = new Player(playerTexture, new Vector2(600, 200));
+
+        sprites.Add(player);
     }
 
     protected override void Update(GameTime gameTime)
@@ -54,11 +61,22 @@ public class Game1 : Game
         if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
+        List<Sprite> killList = new();
+
         foreach (var sprite in sprites)
         {
             sprite.Update(gameTime);
-                }
 
+            if (sprite != player && sprite.Rect.Intersects(player.Rect))
+            {
+                killList.Add(sprite);
+            }
+
+        }
+        foreach (var sprite in killList)
+        {
+            sprites.Remove(sprite);
+            }
 
 
         base.Update(gameTime);

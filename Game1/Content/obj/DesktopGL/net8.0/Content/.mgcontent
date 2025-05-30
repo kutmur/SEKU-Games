@@ -4,10 +4,14 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/AnimationSheet_Character.gif</File>
+    <File>/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/github-octopuss.gif</File>
     <File>/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/imorr.png</File>
     <File>/home/ercu/Desktop/repos/SEKU-Games/Game1/Content/xanti.jpg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
