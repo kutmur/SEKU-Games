@@ -51,9 +51,9 @@ public class Game1 : Game
         sprites.Add(new Sprite(enemyTexture, new Vector2(400, 50)));
     
 
-        player = new Player(playerTexture, new Vector2(600, 200));
+        player = new Player(playerTexture, new Vector2(600, 200),sprites);
 
-        sprites.Add(player);
+        
     }
 
     protected override void Update(GameTime gameTime)
@@ -61,23 +61,12 @@ public class Game1 : Game
         if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        List<Sprite> killList = new();
+       
 
         foreach (var sprite in sprites)
         {
-            sprite.Update(gameTime);
-
-            if (sprite != player && sprite.Rect.Intersects(player.Rect))
-            {
-                killList.Add(sprite);
-            }
-
-        }
-        foreach (var sprite in killList)
-        {
-            sprites.Remove(sprite);
-            }
-
+            sprite.Update(gameTime);  }
+        player.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -92,7 +81,7 @@ public class Game1 : Game
     {
         sprite.Draw(_spriteBatch);
     }
-
+        player.Draw(_spriteBatch);
     _spriteBatch.End();
 
     base.Draw(gameTime);
