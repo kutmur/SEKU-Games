@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/home/halil/Desktop/repos/SEKU-Games/Pong/Content/Score.spritefont</SourceFile>
+  <SourceTime>2025-05-30T00:05:22.319931+03:00</SourceTime>
+  <DestFile>/home/halil/Desktop/repos/SEKU-Games/Pong/Content/bin/DesktopGL/Content/Score.xnb</DestFile>
+  <DestTime>2025-05-30T00:06:53.6970646+03:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2025-04-05T13:10:54+03:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2025-04-05T13:10:54+03:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
